@@ -9,7 +9,7 @@
 
 ## How to run
 
-- ##### Install [Expo Go]() app on your phone;
+- ##### Install [Expo Go](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR&gl=US) app on your phone;
 - ##### Install expo
 	``npm install -g expo-cli``
 - ##### Clone this repository

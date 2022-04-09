@@ -8,10 +8,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
 
+import { ColorSchemeName, Pressable } from 'react-native';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
+
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 
@@ -23,11 +24,35 @@ import InfoScreen from '../screens/InfoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
+const customLightTheme = {
+	dark: false,
+	colors: {
+					primary: '#A0E418',
+					background: '#A0E418',
+					card: '#A0E418',
+					text: '#A0E418',
+					border: '#A0E418',
+					notification: '#A0E418',
+	},
+};
+
+const customDarkTheme = {
+	dark: true,
+	colors: {
+					primary: '#A0E418',
+					background: '#A0E418',
+					card: '#A0E418',
+					text: '#000',
+					border: '#A0E418',
+					notification: '#A0E418',
+	},
+};
+
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
-      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      theme={colorScheme === 'light' ? customLightTheme : customDarkTheme}>
       <RootNavigator />
     </NavigationContainer>
   );

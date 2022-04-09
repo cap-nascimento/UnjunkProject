@@ -1,15 +1,14 @@
 import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
+import InfoEdit from '../components/InfoEdit';
 import { Text, View } from '../components/Themed';
-import { RootTabScreenProps } from '../types';
 
-export default function HomeScreen() {
+export default function InfoScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Info</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/InfoScreen.tsx" />
+      <View style={styles.separator} />
+      <InfoEdit path="/screens/InfoScreen.tsx" />
     </View>
   );
 }

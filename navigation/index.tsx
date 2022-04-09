@@ -71,7 +71,7 @@ function BottomTabNavigator() {
         component={PlanScreen}
         options={{
           title: 'Plan',
-          tabBarIcon: ({ color }) => <TabBarIcon name="spoon" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="leaf" color={color} />,
         }}
       />
       <BottomTab.Screen

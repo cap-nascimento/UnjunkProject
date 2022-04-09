@@ -2,11 +2,11 @@ import { StyleSheet } from 'react-native';
 
 import { Text, View } from './Themed';
 
-export default function HomeEdit({ path }: { path: string }) {
+export default function PlanEdit({ path }: { path: string }) {
 	return (
 		<View>
 			<Text>
-					Conteúdo da home
+					Conteúdo do plano
 			</Text>
 		</View>
 	);

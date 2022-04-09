@@ -14,6 +14,7 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
+
 import PlanScreen from '../screens/PlanScreen';
 import HomeScreen from '../screens/HomeScreen';
 import PhisicalInfoScreen from '../screens/PhisicalInfoScreen';
@@ -70,7 +71,7 @@ function BottomTabNavigator() {
         component={PlanScreen}
         options={{
           title: 'Plan',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="spoon" color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -78,7 +79,7 @@ function BottomTabNavigator() {
         component={HomeScreen}
         options={({ navigation }: RootTabScreenProps<'Home'>) => ({
           title: 'Home',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         })}
       />
 						<BottomTab.Screen
@@ -86,7 +87,7 @@ function BottomTabNavigator() {
         component={PhisicalInfoScreen}
         options={{
           title: 'Phis',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="child" color={color} />,
         }}
       />
 						<BottomTab.Screen 
@@ -94,7 +95,7 @@ function BottomTabNavigator() {
 								component={InfoScreen}
 								options={{
 										title: 'Info',
-										tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+										tabBarIcon: ({ color }) => <TabBarIcon name="info" color={color} />,
 								}}
 						/>
     </BottomTab.Navigator>

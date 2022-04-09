@@ -1,15 +1,22 @@
-import { StyleSheet } from 'react-native';
-
+import { useState } from 'react';
+import { StyleSheet, Pressable } from 'react-native';
+import PersonalPlan from '../modals/PersonalPlan';
 import { Text, View } from './Themed';
-
-import { Button, Alert } from 'react-native';
 
 const profilePictureModule = require('react-native-profile-picture');
 
 export default function HomeEdit({ path }: { path: string }) {
+
 	const ProfilePicture = profilePictureModule.default;
+	const [visiblePlan, setVisiblePlan] = useState(false);
+
+	const closeModal = () => {
+		setVisiblePlan(false);
+	}
+
 	return (
-		<View style={styles.container}>
+		<View style={styles.centeredView}>
+
 			<ProfilePicture 
 				isPicture={true}
 				requirePicture={require('../assets/images/zero-two.jpg')}
@@ -17,20 +24,43 @@ export default function HomeEdit({ path }: { path: string }) {
 				width={80}
 				height={80}
 			/>
-			<Button
-				title='Ver plano'
-				onPress={() => {Alert.alert('')}}
-			/>
-			<Button
-				title='Compartilhe seu perfil'
-				onPress={() => {Alert.alert('')}}
-			/>
+			
+			{
+				visiblePlan ? (
+				<PersonalPlan 
+					modalState={closeModal}
+				/>
+				) : (<></>)
+			}
+			
+			<Pressable
+				style={[styles.button, styles.buttonOpen]}
+				onPress={() => setVisiblePlan(!visiblePlan)}>
+				<Text style={styles.textStyle}>Ver Plano</Text>
+			</Pressable>
+
 		</View>
 	);
 }
 
 const styles = StyleSheet.create({
-	container: {
-		alignItems: 'center',
+	centeredView: {
+			flex: 1,
+			justifyContent: "center",
+			alignItems: "center",
+			marginTop: 22
+	},
+	button: {
+			borderRadius: 20,
+			padding: 10,
+			elevation: 2
+	},
+	buttonOpen: {
+			backgroundColor: "#F194FF",
+	},
+	textStyle: {
+			color: "white",
+			fontWeight: "bold",
+			textAlign: "center"
 	}
 });

@@ -19,7 +19,7 @@ export default function HomeEdit({ path }: { path: string }) {
 
 			<ProfilePicture 
 				isPicture={true}
-				requirePicture={require('../assets/images/zero-two.jpg')}
+				requirePicture={require('../../assets/images/zero-two.jpg')}
 				shape='rounded'
 				width={80}
 				height={80}

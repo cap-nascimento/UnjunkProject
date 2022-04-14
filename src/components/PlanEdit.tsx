@@ -12,7 +12,7 @@ export default function PlanEdit({ path }: { path: string }) {
 	const { control, handleSubmit, formState: { errors } } = useForm({
 		defaultValues: {
 			peso: '',
-			altura: '',
+			altura:'',
 		}
 	});
 	const onSubmit = (data: any) => {
@@ -24,6 +24,8 @@ export default function PlanEdit({ path }: { path: string }) {
 			const insertId = PessoaService.addData(pessoa);
 			if (insertId == null || insertId == undefined) {
 				alert("Não foi possível inserir seus dados.");
+			} else {
+				alert("O app está em desenvolvimento, portanto apenas vamos checar sua faixa de peso. Vá para 'Phis'");
 			}
 		} catch (error) {
 			console.log('deu erro');
@@ -43,6 +45,7 @@ export default function PlanEdit({ path }: { path: string }) {
 					onBlur={onBlur}
 					onChangeText={onChange}
 					value={value}
+					keyboardType='numeric'
 					/>
 					)}
 				name="peso"
@@ -62,11 +65,14 @@ export default function PlanEdit({ path }: { path: string }) {
 					onBlur={onBlur}
 					onChangeText={onChange}
 					value={value}
+					keyboardType='numeric'
 					/>
 					)}
 				name="altura"
 			/>
 			<Text style={styles.textStyle}>Altura (m)</Text>
+			{ errors.altura && <Text style={styles.textStyle}>
+				This is required.</Text> }
 
 			<Pressable 
 				onPress={handleSubmit(onSubmit)}

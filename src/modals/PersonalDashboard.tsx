@@ -22,7 +22,20 @@ export default function PersonalDashboard(props: any) {
   }, []);
 
   const obesityIndicator = (imc: number) => {
-    let result = imc.toString();
+    let result = '';
+    if (imc < 18.5) {
+      result = 'abaixo do peso.';
+    } else if (imc < 25) {
+      result = 'com peso normal.';
+    } else if (imc < 30) {
+      result = 'com sobrepeso.';
+    } else if (imc < 35) {
+      result = 'com obesidade grau I.';
+    } else if (imc < 40) {
+      result = 'com obesidade grau II.';
+    } else {
+      result = 'com obesidade grau III.';
+    }
     setIndicator(`Você está com ${result}`);
   }
 

@@ -1,6 +1,6 @@
 import { Alert, Modal, Pressable, StyleSheet } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Text, View } from "../components/Themed";
 
@@ -12,7 +12,28 @@ function ModalIcon(props: {
 }
 
 export default function PersonalDashboard(props: any) {
+
   const [modalVisible, setModalVisible] = useState(true);
+  const [imc, setImc] = useState(0);
+  const [indicator, setIndicator] = useState('');
+
+  useEffect(() => {
+    calculateIMC();
+  }, []);
+
+  const obesityIndicator = (imc: number) => {
+    let result = imc.toString();
+    setIndicator(`Você está com ${result}`);
+  }
+
+  const calculateIMC = () => {
+    const peso: number = props.pessoaData.peso;
+    const altura: number = props.pessoaData.altura;
+    let currentImc = peso / (altura * altura);
+    setImc(currentImc);
+    obesityIndicator(currentImc);
+  }
+
   return(
     <Modal
       animationType="slide"
@@ -24,7 +45,21 @@ export default function PersonalDashboard(props: any) {
       }}
     >
       <View style={styles.modalContainer}>
-
+        <Pressable
+          onPress={() => {
+            setModalVisible(!modalVisible);
+            props.modalState();
+          }}>
+          <ModalIcon name="close" color="green" />
+        </Pressable>
+      </View>
+      <View style={styles.modalContent}>
+        <Text style={styles.textStyle}>
+          IMC: {imc}
+        </Text>
+        <Text style={styles.textStyle}>
+          {indicator}
+        </Text>
       </View>
     </Modal>
   );
@@ -32,7 +67,15 @@ export default function PersonalDashboard(props: any) {
 
 const styles = StyleSheet.create({
   modalContainer: {
-    flex: 1,
-    marginTop: 22,
+    
+  },
+	modalContent: {
+		flex: 1,
+		alignItems: "flex-start",
+	},
+  textStyle: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    margin: 22,
   }
 })

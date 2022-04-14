@@ -46,7 +46,6 @@ export default function PersonalPlan(props: any) {
 const styles = StyleSheet.create({
 	modalContainer: {
 			flex: 1,
-			marginTop: 22
 	},
 	modalContent: {
 		flex: 1,

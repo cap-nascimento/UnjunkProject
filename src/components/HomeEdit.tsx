@@ -48,18 +48,16 @@ const styles = StyleSheet.create({
 			flex: 1,
 			justifyContent: "center",
 			alignItems: "center",
-			marginTop: 22
 	},
 	button: {
-			borderRadius: 20,
+			borderRadius: 10,
 			padding: 10,
 			elevation: 2
 	},
 	buttonOpen: {
-			backgroundColor: "#F194FF",
+			backgroundColor: "#ccc",
 	},
 	textStyle: {
-			color: "white",
 			fontWeight: "bold",
 			textAlign: "center"
 	}

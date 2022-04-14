@@ -20,13 +20,13 @@ export default function PhisicalInfoEdit({ path }: { path: string }) {
   }
 
 	return (
-		<View>
+		<View style={styles.centeredView}>
 			<Text>
 					<Pressable
             style={styles.button}
             onPress={getPessoaData}
           >
-            <Text>Seus dados</Text>
+            <Text style={styles.buttonText}>Gerar dashboard</Text>
           </Pressable>
 			</Text>
 		</View>
@@ -34,7 +34,19 @@ export default function PhisicalInfoEdit({ path }: { path: string }) {
 }
 
 const styles = StyleSheet.create({
+	centeredView: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   button: {
     backgroundColor: '#ccc',
+    borderRadius: 5,
+    padding: 10,
+    alignContent: 'center'
   },
+  buttonText: {
+    textAlign: "center",
+    fontSize: 20,
+  }
 });
